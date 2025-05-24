@@ -23,8 +23,12 @@ scaler = joblib.load('scaler.pkl')
 pca = joblib.load('pca.pkl')
 
 X = pd.read_csv('PCOS_data.csv')
+
+X.fillna(X.mode().iloc[0], inplace=True)
+X.fillna(X.mean(numeric_only=True), inplace=True)
+
+mean_values = X.mean(numeric_only=True)
 mode_values = X.mode().iloc[0]
-mean_values = X.mean()
 
 feature_mappings = {
     'BMI': 'BMI',
