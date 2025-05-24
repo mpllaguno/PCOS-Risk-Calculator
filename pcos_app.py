@@ -71,7 +71,7 @@ categorical_map = {
 st.title("PCOS Risk Assessment")
 
 st.markdown("### Please provide the following information:")
-st.markdown("# Leave the section blank if the information is unknown.")
+st.markdown("#### Leave the section blank if the information is unknown.")
 
 input_dict = {}
 
