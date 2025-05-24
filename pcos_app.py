@@ -99,7 +99,10 @@ for user_label, model_feature in feature_mappings.items():
                 st.error(f"Invalid input for {user_label}. Please enter a numeric value.")
                 st.stop()
         else:
-            input_dict[model_feature] = mean_values[model_feature]
+            if model_feature in mean_values:
+                input_dict[model_feature] = mean_values[model_feature]
+            else:
+                input_dict[model_feature] = mode_values[model_feature]
 
 for feature in X.columns:
     if feature not in input_dict:
