@@ -106,9 +106,11 @@ for user_label, model_feature in feature_mappings.items():
 
 for feature in X.columns:
     if feature not in input_dict:
-        input_dict[feature] = mean_values[feature]
+        if feature in mean_values:
+            input_dict[feature] = mean_values[feature]
+        else:
+            input_dict[feature] = mode_values[feature]
 
-# Predict
 if st.button("Estimate PCOS Risk"):
     input_df = pd.DataFrame([input_dict])
     input_scaled = scaler.transform(input_df)
