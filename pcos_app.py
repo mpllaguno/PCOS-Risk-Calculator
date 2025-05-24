@@ -113,6 +113,7 @@ for feature in X.columns:
 
 if st.button("Estimate PCOS Risk"):
     input_df = pd.DataFrame([input_dict])
+    input_df = input_df.reindex(columns=X.columns) 
     input_scaled = scaler.transform(input_df)
     input_pca = pca.transform(input_scaled)
     predicted_proba = lr_model.predict_proba(input_pca)[:, 1][0]
