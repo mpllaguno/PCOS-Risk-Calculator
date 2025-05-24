@@ -21,9 +21,10 @@ import joblib
 lr_model = joblib.load('lr_model.pkl')
 scaler = joblib.load('scaler.pkl')
 pca = joblib.load('pca.pkl')
+feature_names = joblib.load('feature_names.pkl')
 
 X = pd.read_csv('PCOS_data.csv')
-X = X[X.columns]
+X = X[feature_names]
 
 X.fillna(X.mode().iloc[0], inplace=True)
 X.fillna(X.mean(numeric_only=True), inplace=True)
@@ -113,7 +114,7 @@ for feature in X.columns:
 
 if st.button("Estimate PCOS Risk"):
     input_df = pd.DataFrame([input_dict])
-    input_df = input_df.reindex(columns=X.columns) 
+    input_df = input_df.reindex(columns=feature_names) 
     input_scaled = scaler.transform(input_df)
     input_pca = pca.transform(input_scaled)
     predicted_proba = lr_model.predict_proba(input_pca)[:, 1][0]
