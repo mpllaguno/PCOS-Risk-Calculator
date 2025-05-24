@@ -68,9 +68,10 @@ categorical_map = {
     'Reg. Exercise (Y/N)': (1, 0),
 }
 
-st.title("PCOS Risk Estimator")
+st.title("PCOS Risk Assessment")
 
 st.markdown("### Please provide the following information:")
+st.markdown("# Leave the section blank if the information is unknown.")
 
 input_dict = {}
 
