@@ -106,7 +106,7 @@ for user_label, model_feature in feature_mappings.items():
             else:
                 input_dict[model_feature] = mode_values[model_feature]
 
-for feature in X.columns:
+for feature in feature_names:
     if feature not in input_dict:
         if feature in mean_values:
             input_dict[feature] = mean_values[feature]
