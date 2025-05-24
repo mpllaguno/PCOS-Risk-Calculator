@@ -22,7 +22,7 @@ lr_model = joblib.load('lr_model.pkl')
 scaler = joblib.load('scaler.pkl')
 pca = joblib.load('pca.pkl')
 
-X = pd.read_csv('PCOS_data')
+X = pd.read_csv('PCOS_data.csv')
 mode_values = X.mode().iloc[0]
 mean_values = X.mean()
 
