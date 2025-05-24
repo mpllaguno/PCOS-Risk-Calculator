@@ -21,8 +21,11 @@ import joblib
 lr_model = joblib.load('lr_model.pkl')
 scaler = joblib.load('scaler.pkl')
 pca = joblib.load('pca.pkl')
+feature_names = joblib.load('feature_names.pkl')
 
 X = pd.read_csv('PCOS_data.csv')
+
+X = X[feature_names]
 
 X.fillna(X.mode().iloc[0], inplace=True)
 X.fillna(X.mean(numeric_only=True), inplace=True)
