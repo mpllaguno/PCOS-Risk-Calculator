@@ -24,7 +24,6 @@ pca = joblib.load('pca.pkl')
 feature_names = joblib.load('feature_names.pkl')
 
 X = pd.read_csv('PCOS_data.csv')
-
 X = X[feature_names]
 
 X.fillna(X.mode().iloc[0], inplace=True)
