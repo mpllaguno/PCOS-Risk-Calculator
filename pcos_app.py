@@ -124,8 +124,8 @@ if st.button("Estimate PCOS Risk"):
     st.markdown(f"### Estimated PCOS Risk: **{risk:.2f}%**")
 
     if predicted_proba <= 0.2:
-        st.success("Low Risk of PCOS")
+        st.success("Risk Level: Low")
     elif predicted_proba >= 0.8:
-        st.error("High Risk of PCOS")
+        st.error("Risk Level: High")
     else:
-        st.warning("Moderate Risk of PCOS")
+        st.warning("Risk Level: Moderate")
